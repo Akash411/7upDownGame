@@ -49,7 +49,8 @@ function App() {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        height: "80vh",
+        height: "100vh",
+        backgroundColor: "#d5d5d5",
       }}
     >
       <Typography variant="h4" gutterBottom>
@@ -65,13 +66,15 @@ function App() {
       >
         Roll Dice
       </Button>
-      {diceResult && <ResultDisplay result={diceResult} />}
-      {gameMessage && (
-        <Typography
-          variant="h6"
-          dangerouslySetInnerHTML={{ __html: gameMessage }}
-        ></Typography>
-      )}
+      <div style={{ height: "20vh" }}>
+        {diceResult && <ResultDisplay result={diceResult} />}
+        {gameMessage && (
+          <Typography
+            variant="h6"
+            dangerouslySetInnerHTML={{ __html: gameMessage }}
+          ></Typography>
+        )}
+      </div>
     </Container>
   );
 }
