@@ -15,7 +15,7 @@ function App() {
 
   const rollDice = async () => {
     if (!betAmount || !betChoice) {
-      setGameMessage("Please select a bet amount and choice..");
+      setGameMessage("Please select a bet amount and choice...");
       return;
     }
 
