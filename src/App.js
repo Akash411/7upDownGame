@@ -36,7 +36,7 @@ function App() {
       setGameMessage(gameResponse.data.message);
     } catch (error) {
       console.error(error);
-      setGameMessage("An error occurred. Please try again.");
+      setGameMessage("An error occurred. Please try again...");
     }
   };
 
