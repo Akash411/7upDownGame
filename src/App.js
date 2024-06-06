@@ -4,7 +4,7 @@ import axios from "axios";
 import BetOptions from "./components/BetOptions";
 import ResultDisplay from "./components/ResultDisplay";
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL; //https://7updown-game-server.vercel.app
 
 function App() {
   const [points, setPoints] = useState(5000);
