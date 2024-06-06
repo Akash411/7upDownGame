@@ -20,6 +20,7 @@ function App() {
     }
 
     try {
+      console.log(`${API_URL}/roll-dice`, API_URL);
       const diceResponse = await axios.post(`${API_URL}/roll-dice`);
       const result = diceResponse.data.result;
 
