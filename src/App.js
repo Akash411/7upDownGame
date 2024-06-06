@@ -17,7 +17,6 @@ function App() {
   const [die2Val, setDieVal2] = useState("1");
 
   const rollDice = async () => {
-    console.log(points);
     if (points <= 0) {
       setGameMessage("<span style='color: red;'>Not enough money!!</span>");
       return false;

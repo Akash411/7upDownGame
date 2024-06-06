@@ -21,7 +21,6 @@ function Dice({ die1, die2 }) {
     <div className="App">
       <center>
         <div className="container">
-          {console.log(die1, die2)}
           <img
             style={{ width: "50px", height: "50px" }}
             className="square"
