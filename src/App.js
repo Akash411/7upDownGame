@@ -3,6 +3,7 @@ import { Container, Typography, Button } from "@material-ui/core";
 import axios from "axios";
 import BetOptions from "./components/BetOptions";
 import ResultDisplay from "./components/ResultDisplay";
+import Dice from "./Dice";
 
 const API_URL = process.env.REACT_APP_API_URL; //https://7updown-game-server.vercel.app
 
@@ -12,19 +13,27 @@ function App() {
   const [betChoice, setBetChoice] = useState(null);
   const [diceResult, setDiceResult] = useState(null);
   const [gameMessage, setGameMessage] = useState("");
+  const [die1Val, setDieVal1] = useState("1");
+  const [die2Val, setDieVal2] = useState("1");
 
   const rollDice = async () => {
+    console.log(points);
+    if (points <= 0) {
+      setGameMessage("<span style='color: red;'>Not enough money!!</span>");
+      return false;
+    }
     if (!betAmount || !betChoice) {
       setGameMessage("Please select a bet amount and choice.");
       return;
     }
 
     try {
-      console.log(`${API_URL}/roll-dice`, API_URL);
       const diceResponse = await axios.post(`${API_URL}/roll-dice`);
-      const result = diceResponse.data.result;
+      const { result, die1, die2 } = diceResponse.data;
 
       setDiceResult(result);
+      setDieVal1(die1);
+      setDieVal2(die2);
 
       const gameResponse = await axios.post(`${API_URL}/calculate-result`, {
         points,
@@ -50,7 +59,7 @@ function App() {
         justifyContent: "center",
         textAlign: "center",
         height: "100vh",
-        backgroundColor: "#d5d5d5",
+        backgroundColor: "white",
       }}
     >
       <Typography variant="h4" gutterBottom>
@@ -58,6 +67,7 @@ function App() {
       </Typography>
       <Typography variant="h6">Points: {points}</Typography>
       <BetOptions setBetAmount={setBetAmount} setBetChoice={setBetChoice} />
+      <Dice die1={die1Val} die2={die2Val} />
       <Button
         variant="contained"
         color="primary"
