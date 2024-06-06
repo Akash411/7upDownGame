@@ -22,14 +22,14 @@ function Dice({ die1, die2 }) {
       <center>
         <div className="container">
           <img
-            style={{ width: "50px", height: "50px" }}
+            style={{ width: "70px", height: "70px" }}
             className="square"
             src={diceImages[die1 - 1]}
             alt="dice 1"
           ></img>
           <div style={{ width: "5px", display: "inline-block" }}></div>
           <img
-            style={{ width: "50px", height: "50px" }}
+            style={{ width: "70px", height: "70px" }}
             className="square"
             src={diceImages[die2 - 1]}
             alt="dice 2"
