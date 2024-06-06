@@ -66,7 +66,12 @@ function App() {
         Roll Dice
       </Button>
       {diceResult && <ResultDisplay result={diceResult} />}
-      {gameMessage && <Typography variant="h6">{gameMessage}</Typography>}
+      {gameMessage && (
+        <Typography
+          variant="h6"
+          dangerouslySetInnerHTML={{ __html: gameMessage }}
+        ></Typography>
+      )}
     </Container>
   );
 }
