@@ -15,7 +15,7 @@ function App() {
 
   const rollDice = async () => {
     if (!betAmount || !betChoice) {
-      setGameMessage("Please select a bet amount and choice..");
+      setGameMessage("Please select a bet amount and choice.");
       return;
     }
 
@@ -42,13 +42,27 @@ function App() {
   };
 
   return (
-    <Container>
+    <Container
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        height: "80vh",
+      }}
+    >
       <Typography variant="h4" gutterBottom>
         7 Up 7 Down Game
       </Typography>
       <Typography variant="h6">Points: {points}</Typography>
       <BetOptions setBetAmount={setBetAmount} setBetChoice={setBetChoice} />
-      <Button variant="contained" color="primary" onClick={rollDice}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={rollDice}
+        style={{ margin: "15px 0 15px 0" }}
+      >
         Roll Dice
       </Button>
       {diceResult && <ResultDisplay result={diceResult} />}

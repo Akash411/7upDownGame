@@ -13,6 +13,7 @@ const BetOptions = ({ setBetAmount, setBetChoice }) => (
           key={amount}
           variant="contained"
           onClick={() => setBetAmount(amount)}
+          style={{ margin: "5px" }}
         >
           {amount}
         </Button>
@@ -25,6 +26,7 @@ const BetOptions = ({ setBetAmount, setBetChoice }) => (
           key={choice}
           variant="contained"
           onClick={() => setBetChoice(choice)}
+          style={{ margin: "5px" }}
         >
           {choice}
         </Button>
